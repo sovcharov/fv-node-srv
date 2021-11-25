@@ -6,7 +6,7 @@
       myFunctions = require('./myfunctions');
     const sql = require('mssql'),
       mysql = require('mysql');
-
+    console.log(config);
     sql.on('error', err => {
       console.log("Error in SQL: ", err);
     })
@@ -141,7 +141,9 @@
           connection.end();
         },
         getStores: function (callback) {
+          
           var query = "SELECT SIFR, CODE, NAME, NETNAME FROM CASHES order by sifr desc;";
+          var query = "SELECT name FROM master.sys.databases;";
           sql.connect(config, err => {
             const request = new sql.Request();
             request.query(query, (err, result) => {
