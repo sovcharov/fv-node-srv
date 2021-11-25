@@ -4,11 +4,12 @@
     var createRevenueData = require('./services/createrevenuedatakv.js'),
       fs = require('fs'),
       myFunctions = require('./services/myfunctions'),
+      firstSpin = true,
       revenueStore = function () {
         var date = new Date();
         var hour = date.getUTCHours()+3,
             minute = date.getUTCMinutes();
-        if(hour <= 23 && hour >= 8 && minute % 15 === 8) {
+        if(firstSpin || (hour <= 23 && hour >= 8 && minute % 15 === 8)) {
           console.log("Start: ", date);
           createRevenueData.getDataFromDB(function (data) {
             date = new Date();
@@ -30,8 +31,8 @@
             })
           });
         }
-
+        firstSpin = false;
       };
-    // revenueStore();
+    revenueStore();//THIS JUST FOR THE FIRST SPIN
     setInterval(revenueStore, 60000);
 }());
