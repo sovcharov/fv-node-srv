@@ -10,8 +10,8 @@
         var date = new Date();
         var hour = date.getUTCHours()+3,
             minute = date.getUTCMinutes();
-        if(hour <= 23 && hour >= 8 && minute % 15 === 9) {
-          firstSpin = false;
+        if((hour <= 23 && hour >= 8 && minute % 15 === 9) || firstSpin) {
+          // firstSpin = false;
           console.log("Start: ", date);
           createRevenueData.getDataFromDB(function (data) {
             date = new Date();
@@ -33,7 +33,8 @@
             })
           });
         }
+        firstSpin = false;
       };
-    // revenueStore();
+    revenueStore();
     setInterval(revenueStore, 60000);
 }());
