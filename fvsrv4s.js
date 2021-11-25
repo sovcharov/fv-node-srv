@@ -10,7 +10,7 @@
         var date = new Date();
         var hour = date.getUTCHours()+3,
             minute = date.getUTCMinutes();
-        if(hour <= 23 && hour >= 8 && minute % 15 === 8) {
+        if(hour <= 23 && hour >= 8 && minute % 15 === 9) {
           firstSpin = false;
           console.log("Start: ", date);
           createRevenueData.getDataFromDB(function (data) {
