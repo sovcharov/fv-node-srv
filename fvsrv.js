@@ -536,7 +536,7 @@
     // });
 
     app.post('/api/passwordChange/user/:id/password/:password', function (req, res) {
-
+        console.log("in password change");
         var query = "call passwordChange(" + req.params.id + ", '" + req.params.password + "')",
             connection = mysql.createConnection(mysqlConnection);
 
