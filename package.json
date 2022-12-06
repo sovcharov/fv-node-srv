@@ -5,7 +5,7 @@
   "main": "fvsrv.js",
   "dependencies": {
     "cookie-parser": "^1.4.3",
-    "express": "^4.13.4",
+    "express": "^4.17.3",
     "matrixmath": "^2.2.1",
     "mssql": "^6.2.0",
     "mysql": "^2.18.1"
